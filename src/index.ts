@@ -17,3 +17,19 @@ console.log("Все задачи:", tasks);
 console.log("Только активные:", filterByStatus(tasks, "active"));
 console.log("Поиск по 'код':", filterByQuery(tasks, "код"));
 console.log("Сортировка:", sortByDate(tasks));
+
+import { isTask } from "./utils.ts/guards.js";
+const maybeTask: unknown = {
+  id: "x1",
+  title: "Test",
+  completed: false,
+  createdAt: new Date(),
+};
+if (isTask(maybeTask)) {
+  console.log("Это задача:", maybeTask.title);
+} else {
+  console.log("Не задача");
+}
+
+import formatTitle from "./utils.ts/format.js";
+console.log(formatTitle("   привет    мир   "));
